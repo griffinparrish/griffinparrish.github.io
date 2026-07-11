@@ -408,6 +408,15 @@
     .work-item{grid-template-columns:1fr; gap:8px;}
     .work-item.thumbed{grid-template-columns:1fr;}
     .work-item .go{justify-self:start;}
+    .work-item.thumbed .thumb{
+      width:calc(100% + 64px);
+      margin-left:-32px;
+      margin-right:-32px;
+      height:220px;
+      border-radius:0;
+      border:none;
+      border-bottom:3px solid var(--amber);
+    }
     .design-grid, .results-grid{grid-template-columns:1fr;}
     .about-grid{grid-template-columns:1fr;}
     .navlinks{gap:16px;}
@@ -418,7 +427,7 @@
 
 <header>
   <nav class="wrap">
-    <div class="brand">Griffin Parrish</div>
+    <a href="#" class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Griffin Parrish</a>
     <div class="navlinks">
       <a href="#work">Work</a>
       <a href="#about">About</a>
