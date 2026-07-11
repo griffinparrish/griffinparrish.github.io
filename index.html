@@ -62,16 +62,8 @@
     font-family:'Google Sans Flex', sans-serif;
     font-size:18px;
     font-weight:700;
-    display:flex;
-    align-items:center;
-    gap:10px;
+    color:var(--text);
   }
-  .brand img{
-    height:30px;
-    width:auto;
-    display:block;
-  }
-  .brand span{color:var(--amber);}
   .navlinks{display:flex; gap:28px; align-items:center;}
   .navlinks a{
     font-size:13px; font-weight:500;
@@ -135,15 +127,22 @@
   }
   .cta-primary:hover{filter:brightness(1.12);}
 
-  .stats{
-    display:grid; grid-template-columns:repeat(4,1fr);
+  .stats-viewport{
+    overflow:hidden;
     border-bottom:1px solid var(--rule);
   }
+  .stats-track{
+    display:flex;
+    width:max-content;
+    animation:stats-ticker 34s linear infinite;
+  }
   .stat{
+    width:280px;
+    flex:0 0 auto;
+    box-sizing:border-box;
     padding:26px 28px;
     border-right:1px solid var(--rule);
   }
-  .stat:last-child{border-right:none;}
   .stat .num{
     font-family:'Google Sans Flex', sans-serif;
     font-weight:700;
@@ -161,6 +160,13 @@
   }
   .stat.clients .label{
     font-size:11px;
+  }
+  @keyframes stats-ticker{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .stats-track{ animation:none; }
   }
 
   .section{padding:90px 0; border-bottom:1px solid var(--rule);}
@@ -183,7 +189,9 @@
     background:transparent;
     border:none; cursor:pointer;
     color:var(--muted);
+    transition:color 0.15s ease;
   }
+  .toggle button:hover:not(.active){ color:var(--amber); }
   .toggle button.active{background:var(--text); color:var(--ink);}
 
   .work-list{display:none;}
@@ -197,10 +205,10 @@
     align-items:start;
   }
   .work-item.thumbed{
-    grid-template-columns:120px 1fr 190px;
+    grid-template-columns:180px 1fr 190px;
   }
   .work-item .thumb{
-    width:120px; height:88px;
+    width:180px; height:130px;
     border-radius:2px;
     position:relative;
     overflow:hidden;
@@ -214,6 +222,7 @@
   }
   .work-item .thumb.has-img{ border-style:solid; }
   .work-item .thumb.has-img::after{ display:none; }
+  .work-item a:has(.thumb){ display:block; cursor:pointer; }
   .work-item .thumb::after{
     content:"IMAGE";
     position:absolute; inset:0;
@@ -229,6 +238,8 @@
     font-size:21px; font-weight:700;
     margin-bottom:8px;
   }
+  .title-link{ color:inherit; text-decoration:none; cursor:pointer; }
+  .title-link:hover{ color:var(--amber); }
   .work-item p{color:var(--muted); font-size:14.5px; max-width:520px;}
   .work-item .go{
     font-family:'IBM Plex Mono', monospace;
@@ -393,8 +404,7 @@
   }
 
   @media (max-width:760px){
-    .stats{grid-template-columns:repeat(2,1fr);}
-    .stat:nth-child(2){border-right:none;}
+    .stat{ width:220px; }
     .work-item{grid-template-columns:1fr; gap:8px;}
     .work-item.thumbed{grid-template-columns:1fr;}
     .work-item .go{justify-self:start;}
@@ -408,11 +418,11 @@
 
 <header>
   <nav class="wrap">
-    <div class="brand"><img src="griffin-logo.png" alt="Griffin Parrish logo">Griffin Parrish<span>.</span></div>
+    <div class="brand">Griffin Parrish</div>
     <div class="navlinks">
       <a href="#work">Work</a>
       <a href="#about">About</a>
-      <a href="mailto:griffin.m.parrish@gmail.com" class="btn">Say hello</a>
+      <a href="mailto:griffin.m.parrish@gmail.com" class="btn">Say Hello!</a>
     </div>
   </nav>
 </header>
@@ -431,22 +441,48 @@
   </div>
 </section>
 
-<div class="stats">
-  <div class="stat">
-    <div class="num">5+</div>
-    <div class="label">Years in Content Marketing &amp; SEO/GEO</div>
-  </div>
-  <div class="stat">
-    <div class="num">7</div>
-    <div class="label">Promotions at Siege Media</div>
-  </div>
-  <div class="stat clients">
-    <div class="num">Clients</div>
-    <div class="label">Zendesk, On, Zoom, QuickBooks, Grow Therapy, and more.</div>
-  </div>
-  <div class="stat">
-    <div class="num">GEO</div>
-    <div class="label">Helped lead org's full-service GEO shift</div>
+<div class="stats-viewport">
+  <div class="stats-track">
+    <div class="stat">
+      <div class="num">5+</div>
+      <div class="label">Years in Content Marketing &amp; SEO/GEO</div>
+    </div>
+    <div class="stat">
+      <div class="num">7</div>
+      <div class="label">Promotions at Siege Media</div>
+    </div>
+    <div class="stat clients">
+      <div class="num">CLIENTS</div>
+      <div class="label">Zendesk, On, Zoom, QuickBooks, Grow Therapy, and more.</div>
+    </div>
+    <div class="stat">
+      <div class="num">SEO &rarr; GEO</div>
+      <div class="label">Helped lead Siege's shift to full-service GEO</div>
+    </div>
+    <div class="stat">
+      <div class="num">2</div>
+      <div class="label">Cups of coffee consumed daily, on average</div>
+    </div>
+    <div class="stat">
+      <div class="num">5+</div>
+      <div class="label">Years in Content Marketing &amp; SEO/GEO</div>
+    </div>
+    <div class="stat">
+      <div class="num">7</div>
+      <div class="label">Promotions at Siege Media</div>
+    </div>
+    <div class="stat clients">
+      <div class="num">CLIENTS</div>
+      <div class="label">Zendesk, On, Zoom, QuickBooks, Grow Therapy, and more.</div>
+    </div>
+    <div class="stat">
+      <div class="num">SEO &rarr; GEO</div>
+      <div class="label">Helped lead Siege's shift to full-service GEO</div>
+    </div>
+    <div class="stat">
+      <div class="num">2</div>
+      <div class="label">Cups of coffee consumed daily, on average</div>
+    </div>
   </div>
 </div>
 
@@ -463,17 +499,17 @@
 
     <div class="work-list" id="writing">
       <div class="work-item thumbed">
-        <div class="thumb has-img"><img src="writing-ai-seo-tools.webp" alt="The 15 Best AI SEO Tools article"></div>
+        <a href="https://www.siegemedia.com/strategy/best-ai-seo-tools" target="_blank"><div class="thumb has-img"><img src="writing-ai-seo-tools.webp" alt="The 15 Best AI SEO Tools article"></div></a>
         <div>
-          <h3>The 15 Best AI SEO Tools To Boost Your Organic Traffic</h3>
+          <h3><a href="https://www.siegemedia.com/strategy/best-ai-seo-tools" target="_blank" class="title-link">The 15 Best AI SEO Tools To Boost Your Organic Traffic</a></h3>
           <p>A guide to the AI-powered platforms reshaping SEO and AEO in 2026, covering everything from citation tracking to content strategy tools, written for teams trying to stay visible as search moves toward AI-generated answers.</p>
         </div>
         <a href="https://www.siegemedia.com/strategy/best-ai-seo-tools" target="_blank" class="go">See more →</a>
       </div>
       <div class="work-item thumbed">
-        <div class="thumb has-img"><img src="writing-keyword-research.webp" alt="Keyword Research: A 10-Step Guide article"></div>
+        <a href="https://www.siegemedia.com/strategy/keyword-research" target="_blank"><div class="thumb has-img"><img src="writing-keyword-research.webp" alt="Keyword Research: A 10-Step Guide article"></div></a>
         <div>
-          <h3>Keyword Research: A 10-Step Guide</h3>
+          <h3><a href="https://www.siegemedia.com/strategy/keyword-research" target="_blank" class="title-link">Keyword Research: A 10-Step Guide</a></h3>
           <p>A practical, start-to-finish framework for keyword research: audience research, keyword frameworks, competitor analysis, and how to prioritize using a KOB score, updated with AI-assisted ideation methods.</p>
         </div>
         <a href="https://www.siegemedia.com/strategy/keyword-research" target="_blank" class="go">See more →</a>
@@ -481,55 +517,53 @@
     </div>
 
     <div class="work-list" id="design">
-      <div class="design-grid">
-        <div class="design-card">
-          <div class="tile has-img"><img src="design/rso-01-retro-gallery.jpg" alt="RSO Creative Services featured design"></div>
-          <div>
-            <h3>RSO Creative Services</h3>
-            <p>Free design and marketing services for registered student organizations at WSU: flyers, logos, apparel, and digital assets for a rotating roster of clubs.</p>
-          </div>
-          <a href="design/rso-creative-services.html">See more →</a>
+      <div class="work-item thumbed">
+        <a href="design/rso-creative-services.html"><div class="thumb has-img"><img src="design/rso-01-retro-gallery.jpg" alt="RSO Creative Services featured design"></div></a>
+        <div>
+          <h3><a href="design/rso-creative-services.html" class="title-link">RSO Creative Services</a></h3>
+          <p>Free design and marketing services for registered student organizations at WSU: flyers, logos, apparel, and digital assets for a rotating roster of clubs.</p>
         </div>
-        <div class="design-card">
-          <div class="tile has-img"><img src="design/ptown/ptown-01-heisman-shirt.jpg" alt="P-Town Tees featured design"></div>
-          <div>
-            <h3>P-Town Tees</h3>
-            <p>A t-shirt brand I started in my dorm room in 2018. Designed, sold, and marketed hundreds of shirts, some spotted on College GameDay.</p>
-          </div>
-          <a href="design/ptown-tees.html">See more →</a>
+        <a href="design/rso-creative-services.html" class="go">See more →</a>
+      </div>
+      <div class="work-item thumbed">
+        <a href="design/ptown-tees.html"><div class="thumb has-img"><img src="design/ptown/ptown-01-heisman-shirt.jpg" alt="P-Town Tees featured design"></div></a>
+        <div>
+          <h3><a href="design/ptown-tees.html" class="title-link">P-Town Tees</a></h3>
+          <p>A t-shirt brand I started in my dorm room in 2018. Designed, sold, and marketed hundreds of shirts, some spotted on College GameDay.</p>
         </div>
-        <div class="design-card">
-          <div class="tile has-img"><img src="design/personal/personal-01-griffin-parrish-record.jpg" alt="Personal Design featured piece"></div>
-          <div>
-            <h3>Personal Design</h3>
-            <p>A running collection of personal graphic design work made in the Adobe Suite, outside of client or brand work.</p>
-          </div>
-          <a href="design/personal-design.html">See more →</a>
+        <a href="design/ptown-tees.html" class="go">See more →</a>
+      </div>
+      <div class="work-item thumbed">
+        <a href="design/personal-design.html"><div class="thumb has-img"><img src="design/personal/personal-01-griffin-parrish-record.jpg" alt="Personal Design featured piece"></div></a>
+        <div>
+          <h3><a href="design/personal-design.html" class="title-link">Personal Design</a></h3>
+          <p>A running collection of personal graphic design work made in the Adobe Suite, outside of client or brand work.</p>
         </div>
+        <a href="design/personal-design.html" class="go">See more →</a>
       </div>
     </div>
 
     <div class="work-list active" id="results">
       <div class="work-item thumbed">
-        <div class="thumb has-img"><img src="case-zendesk.webp" alt="Zendesk case study"></div>
+        <a href="https://www.siegemedia.com/work/zendesk-content-marketing" target="_blank"><div class="thumb has-img"><img src="case-zendesk.webp" alt="Zendesk case study"></div></a>
         <div>
-          <h3>Zendesk</h3>
+          <h3><a href="https://www.siegemedia.com/work/zendesk-content-marketing" target="_blank" class="title-link">Zendesk</a></h3>
           <p>Our GEO and content strategy helped Zendesk grow organic blog traffic by 657%, add $959K in traffic value, and reach 98% visibility in LLM responses across their industry, the highest of any competitor.</p>
         </div>
         <a href="https://www.siegemedia.com/work/zendesk-content-marketing" target="_blank" class="go">See more →</a>
       </div>
       <div class="work-item thumbed">
-        <div class="thumb has-img"><img src="case-zoom.webp" alt="Zoom case study"></div>
+        <a href="https://www.siegemedia.com/work/zoom-content-marketing" target="_blank"><div class="thumb has-img"><img src="case-zoom.webp" alt="Zoom case study"></div></a>
         <div>
-          <h3>Zoom</h3>
+          <h3><a href="https://www.siegemedia.com/work/zoom-content-marketing" target="_blank" class="title-link">Zoom</a></h3>
           <p>We built a link-focused content strategy for Zoom that earned 1,420 new links from sites including DR 40+ domains, lifted blog traffic value by 107%, and grew LLM visibility to 86%.</p>
         </div>
         <a href="https://www.siegemedia.com/work/zoom-content-marketing" target="_blank" class="go">See more →</a>
       </div>
       <div class="work-item thumbed">
-        <div class="thumb has-img"><img src="case-grow.webp" alt="Grow Therapy case study"></div>
+        <a href="https://www.siegemedia.com/work/grow-therapy-content-marketing" target="_blank"><div class="thumb has-img"><img src="case-grow.webp" alt="Grow Therapy case study"></div></a>
         <div>
-          <h3>Grow Therapy</h3>
+          <h3><a href="https://www.siegemedia.com/work/grow-therapy-content-marketing" target="_blank" class="title-link">Grow Therapy</a></h3>
           <p>A dual-track content and digital PR strategy grew Grow Therapy's referring domains by 30.5%, added $20.7K in monthly traffic value, and nearly quadrupled their LLM visibility, from 11% to 43%.</p>
         </div>
         <a href="https://www.siegemedia.com/work/grow-therapy-content-marketing" target="_blank" class="go">See more →</a>
@@ -554,11 +588,18 @@
         <div class="skills">
           <span class="skill-tag">SEO / GEO</span>
           <span class="skill-tag">Content Strategy</span>
+          <span class="skill-tag">Content Creation</span>
           <span class="skill-tag">Editorial Management</span>
-          <span class="skill-tag">Figma</span>
-          <span class="skill-tag">Adobe Creative Suite</span>
           <span class="skill-tag">Semrush / Ahrefs</span>
+          <span class="skill-tag">Google Search Console</span>
+          <span class="skill-tag">GA4</span>
           <span class="skill-tag">Peec AI</span>
+          <span class="skill-tag">Claude</span>
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag">Adobe Creative Suite</span>
+          <span class="skill-tag">Social Media Management</span>
+          <span class="skill-tag">ClickUp</span>
+          <span class="skill-tag">Microsoft Suite</span>
         </div>
       </div>
 
