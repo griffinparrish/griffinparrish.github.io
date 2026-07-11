@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Griffin Parrish — Director of Marketing, Content &amp; GEO Strategy</title>
+<meta name="description" content="Griffin Parrish is a Director of Marketing based in New York, leading content strategy, SEO, and GEO for brands including Zendesk, On, and Zoom.">
+<meta property="og:title" content="Griffin Parrish — Director of Marketing, Content & GEO Strategy">
+<meta property="og:description" content="Director of Marketing based in New York. Content strategy, SEO, and GEO for brands including Zendesk, On, and Zoom.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============================================
+     COLORS — change any hex value below to update
+     that color across the whole site.
+     ============================================ */
+  :root{
+    --ink:#0B0C0E;        /* page background */
+    --panel:#141619;      /* card backgrounds */
+    --text:#EDEDEA;       /* main text color */
+    --rule:#26292D;       /* thin lines/borders */
+    --amber:#E5655D;      /* accent color (currently red) */
+    --teal:#5FBDB0;       /* small dot next to "New York, NY" */
+    --muted:#8B8F94;      /* gray/secondary text */
+    --maxw:1100px;        /* max page width */
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Google Sans Flex', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  .display{font-family:'Google Sans Flex', sans-serif;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--muted);
+  }
+  ::selection{ background:var(--amber); color:var(--ink); }
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,12,14,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:18px; padding-bottom:18px;
+  }
+  .brand{
+    font-family:'Google Sans Flex', sans-serif;
+    font-size:18px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand img{
+    height:30px;
+    width:auto;
+    display:block;
+  }
+  .brand span{color:var(--amber);}
+  .navlinks{display:flex; gap:28px; align-items:center;}
+  .navlinks a{
+    font-size:13px; font-weight:500;
+    color:var(--text);
+    position:relative;
+    padding-bottom:3px;
+  }
+  .navlinks a::after{
+    content:""; position:absolute; left:0; bottom:0;
+    width:0; height:1px; background:var(--amber);
+    transition:width 0.25s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .navlinks a.btn{
+    background:var(--amber); color:var(--ink);
+    padding:8px 16px; border-radius:2px;
+    font-family:'Google Sans Flex', sans-serif;
+    font-weight:600;
+    font-size:13px;
+  }
+  .navlinks a.btn:hover{filter:brightness(1.12);}
+  .navlinks a.btn::after{display:none;}
+
+  .hero{
+    padding:110px 0 90px;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero .eyebrow{margin-bottom:22px; display:flex; align-items:center; gap:10px;}
+  .hero .eyebrow::before{
+    content:""; width:7px; height:7px; border-radius:50%;
+    background:var(--amber); display:inline-block;
+  }
+  .hero h1{
+    font-family:'Google Sans Flex', sans-serif;
+    font-weight:700;
+    font-size:clamp(34px, 5.6vw, 58px);
+    line-height:1.08;
+    max-width:900px;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 .accent{ color:var(--amber); }
+  .hero h1 .dim{ color:var(--muted); }
+  .hero p.sub{
+    margin-top:26px;
+    max-width:560px;
+    font-size:16px;
+    color:var(--muted);
+  }
+  .hero .ctas{
+    margin-top:38px;
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .cta-primary{
+    font-family:'Google Sans Flex', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    padding:12px 22px;
+    border-radius:2px;
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--amber); color:var(--ink);
+  }
+  .cta-primary:hover{filter:brightness(1.12);}
+
+  .stats{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    border-bottom:1px solid var(--rule);
+  }
+  .stat{
+    padding:26px 28px;
+    border-right:1px solid var(--rule);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{
+    font-family:'Google Sans Flex', sans-serif;
+    font-weight:700;
+    font-size:26px;
+    color:var(--amber);
+  }
+  .stat .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--muted);
+    margin-top:6px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    line-height:1.5;
+  }
+  .stat.clients .label{
+    font-size:11px;
+  }
+
+  .section{padding:90px 0; border-bottom:1px solid var(--rule);}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    margin-bottom:48px; gap:24px; flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-family:'Google Sans Flex', sans-serif;
+    font-weight:700;
+    font-size:clamp(26px, 3.4vw, 38px);
+  }
+  .toggle{
+    display:flex; border:1px solid var(--rule); border-radius:2px; overflow:hidden;
+  }
+  .toggle button{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    padding:9px 18px;
+    background:transparent;
+    border:none; cursor:pointer;
+    color:var(--muted);
+  }
+  .toggle button.active{background:var(--text); color:var(--ink);}
+
+  .work-list{display:none;}
+  .work-list.active{display:block;}
+  .work-item{
+    display:grid;
+    grid-template-columns:120px 1fr 200px;
+    gap:28px;
+    padding:28px 0;
+    border-top:1px solid var(--rule);
+    align-items:start;
+  }
+  .work-item.thumbed{
+    grid-template-columns:120px 1fr 190px;
+  }
+  .work-item .thumb{
+    width:120px; height:88px;
+    border-radius:2px;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#1C1F22 0%, #2A2D31 100%);
+    border:1px dashed var(--rule);
+  }
+  .work-item .thumb img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .work-item .thumb.has-img{ border-style:solid; }
+  .work-item .thumb.has-img::after{ display:none; }
+  .work-item .thumb::after{
+    content:"IMAGE";
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:8px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--muted);
+  }
+  .work-item:last-child{border-bottom:1px solid var(--rule);}
+  .work-item .yr{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--muted); padding-top:4px;}
+  .work-item h3{
+    font-family:'Google Sans Flex', sans-serif;
+    font-size:21px; font-weight:700;
+    margin-bottom:8px;
+  }
+  .work-item p{color:var(--muted); font-size:14.5px; max-width:520px;}
+  .work-item .go{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    justify-self:end;
+    align-self:center;
+    padding:8px 14px;
+    border:1px solid var(--rule);
+    white-space:nowrap;
+  }
+  .work-item .go:hover{border-color:var(--amber); color:var(--amber);}
+  .work-item:hover h3{color:var(--amber);}
+
+  .design-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+  }
+  .design-card{
+    background:var(--panel);
+    padding:32px 26px;
+    min-height:280px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .design-card .tile{
+    height:120px;
+    border-radius:2px;
+    margin-bottom:20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .tile.t1{background:linear-gradient(135deg,#3E2A12 0%, #C9762B 65%, #E2A33D 100%);}
+  .tile.t2{background:linear-gradient(135deg,#122B27 0%, #2E6E63 60%, #5FBDB0 100%);}
+  .tile.t3{background:linear-gradient(135deg,#241E30 0%, #4B3E66 60%, #8172A8 100%);}
+  .tile img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .tile.has-img::after{ display:none; }
+  .tile::after{
+    content:"IMAGE PLACEHOLDER — swap in a real shot";
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px; letter-spacing:0.05em; text-transform:uppercase;
+    color:rgba(255,255,255,0.8);
+    text-align:center; padding:0 16px;
+    background:rgba(0,0,0,0.15);
+  }
+  .design-card h3{
+    font-family:'Google Sans Flex', sans-serif;
+    font-size:18px; font-weight:700; margin-bottom:8px;
+  }
+  .design-card p{font-size:13.5px; color:var(--muted); margin-bottom:14px;}
+  .design-card a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--amber);
+  }
+  .design-card a:hover{text-decoration:underline;}
+
+  .results-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+  }
+  .result-card{
+    background:var(--panel);
+    padding:30px 26px;
+    min-height:200px;
+    border-top:2px dashed var(--rule);
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .result-card .placeholder-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--teal);
+    margin-bottom:14px;
+  }
+  .result-card h3{
+    font-family:'Google Sans Flex', sans-serif;
+    font-size:17px; font-weight:600; margin-bottom:8px;
+    color:var(--muted);
+  }
+  .result-card p{font-size:13px; color:var(--muted);}
+
+  .about-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px;
+  }
+  .about-grid h2{
+    font-family:'Google Sans Flex', sans-serif;
+    font-weight:700;
+    font-size:clamp(26px,3.4vw,38px);
+    margin-bottom:26px;
+  }
+  .about-grid .bio p{margin-bottom:16px; font-size:15.5px; color:#C7C9C6;}
+  .about-grid .bio p.lead{
+    font-family:'Google Sans Flex', sans-serif;
+    font-weight:500;
+    font-size:19px;
+    color:var(--text);
+  }
+  .timeline{border-top:1px solid var(--rule);}
+  .tl-item{
+    padding:18px 0;
+    border-bottom:1px solid var(--rule);
+    display:grid; grid-template-columns:100px 1fr; gap:16px;
+  }
+  .tl-item .when{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--muted); padding-top:2px;}
+  .tl-item .role{font-weight:600; font-size:14.5px;}
+  .tl-item .org{font-size:13px; color:var(--muted); margin-top:2px;}
+  .skills{margin-top:28px; display:flex; flex-wrap:wrap; gap:8px;}
+  .skill-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    border:1px solid var(--rule);
+    padding:5px 10px;
+    border-radius:2px;
+    color:var(--muted);
+  }
+  .resume-box{
+    margin-top:32px;
+    border:1px solid var(--rule);
+    padding:22px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px;
+  }
+  .resume-box .rlabel{font-size:13.5px;}
+  .resume-box .rlabel .fname{display:block; font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--muted); margin-top:3px;}
+  .resume-box a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    background:var(--text); color:var(--ink);
+    padding:10px 16px; border-radius:2px; white-space:nowrap;
+  }
+  .resume-box a:hover{background:var(--amber);}
+
+  footer{padding:70px 0 50px;}
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:28px; margin-bottom:50px;
+  }
+  footer h2{
+    font-family:'Google Sans Flex', sans-serif;
+    font-weight:700;
+    font-size:clamp(28px, 4.4vw, 46px);
+    max-width:640px;
+  }
+  .footer-links{display:flex; gap:26px; flex-wrap:wrap;}
+  .footer-links a{
+    font-family:'Google Sans Flex', sans-serif;
+    font-weight:500;
+    font-size:13.5px;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:2px;
+  }
+  .footer-links a:hover{border-color:var(--amber); color:var(--amber);}
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:24px; border-top:1px solid var(--rule);
+    font-family:'Google Sans Flex', sans-serif; font-size:12px; color:var(--muted);
+    flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width:760px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(2){border-right:none;}
+    .work-item{grid-template-columns:1fr; gap:8px;}
+    .work-item.thumbed{grid-template-columns:1fr;}
+    .work-item .go{justify-self:start;}
+    .design-grid, .results-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .navlinks{gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand"><img src="griffin-logo.png" alt="Griffin Parrish logo">Griffin Parrish<span>.</span></div>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="mailto:griffin.m.parrish@gmail.com" class="btn">Say hello</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============================================
+     HERO — your headline, subtext, and CTA button
+     ============================================ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Griffin Parrish — Director of Marketing — New York, NY</div>
+    <h1><span class="accent">Helping brands</span> get discovered, wherever people search.</h1>
+    <p class="sub">Director of Marketing at Siege Media, writer, and occasional graphic designer. I lead content strategy, SEO, and GEO/AEO for brands trying to stay visible as search moves from blue links to AI-generated answers.</p>
+    <div class="ctas">
+      <a href="#work" class="cta-primary">See my work →</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="num">5+</div>
+    <div class="label">Years in Content Marketing &amp; SEO/GEO</div>
+  </div>
+  <div class="stat">
+    <div class="num">7</div>
+    <div class="label">Promotions at Siege Media</div>
+  </div>
+  <div class="stat clients">
+    <div class="num">Clients</div>
+    <div class="label">Zendesk, On, Zoom, QuickBooks, Grow Therapy, and more.</div>
+  </div>
+  <div class="stat">
+    <div class="num">GEO</div>
+    <div class="label">Helped lead org's full-service GEO shift</div>
+  </div>
+</div>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>See my work</h2>
+      <div class="toggle">
+        <button class="active" data-tab="results">Results</button>
+        <button data-tab="writing">Writing</button>
+        <button data-tab="design">Design</button>
+      </div>
+    </div>
+
+    <div class="work-list" id="writing">
+      <div class="work-item thumbed">
+        <div class="thumb has-img"><img src="writing-ai-seo-tools.webp" alt="The 15 Best AI SEO Tools article"></div>
+        <div>
+          <h3>The 15 Best AI SEO Tools To Boost Your Organic Traffic</h3>
+          <p>A guide to the AI-powered platforms reshaping SEO and AEO in 2026, covering everything from citation tracking to content strategy tools, written for teams trying to stay visible as search moves toward AI-generated answers.</p>
+        </div>
+        <a href="https://www.siegemedia.com/strategy/best-ai-seo-tools" target="_blank" class="go">See more →</a>
+      </div>
+      <div class="work-item thumbed">
+        <div class="thumb has-img"><img src="writing-keyword-research.webp" alt="Keyword Research: A 10-Step Guide article"></div>
+        <div>
+          <h3>Keyword Research: A 10-Step Guide</h3>
+          <p>A practical, start-to-finish framework for keyword research: audience research, keyword frameworks, competitor analysis, and how to prioritize using a KOB score, updated with AI-assisted ideation methods.</p>
+        </div>
+        <a href="https://www.siegemedia.com/strategy/keyword-research" target="_blank" class="go">See more →</a>
+      </div>
+    </div>
+
+    <div class="work-list" id="design">
+      <div class="design-grid">
+        <div class="design-card">
+          <div class="tile has-img"><img src="design/rso-01-retro-gallery.jpg" alt="RSO Creative Services featured design"></div>
+          <div>
+            <h3>RSO Creative Services</h3>
+            <p>Free design and marketing services for registered student organizations at WSU: flyers, logos, apparel, and digital assets for a rotating roster of clubs.</p>
+          </div>
+          <a href="design/rso-creative-services.html">See more →</a>
+        </div>
+        <div class="design-card">
+          <div class="tile has-img"><img src="design/ptown/ptown-01-heisman-shirt.jpg" alt="P-Town Tees featured design"></div>
+          <div>
+            <h3>P-Town Tees</h3>
+            <p>A t-shirt brand I started in my dorm room in 2018. Designed, sold, and marketed hundreds of shirts, some spotted on College GameDay.</p>
+          </div>
+          <a href="design/ptown-tees.html">See more →</a>
+        </div>
+        <div class="design-card">
+          <div class="tile has-img"><img src="design/personal/personal-01-griffin-parrish-record.jpg" alt="Personal Design featured piece"></div>
+          <div>
+            <h3>Personal Design</h3>
+            <p>A running collection of personal graphic design work made in the Adobe Suite, outside of client or brand work.</p>
+          </div>
+          <a href="design/personal-design.html">See more →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-list active" id="results">
+      <div class="work-item thumbed">
+        <div class="thumb has-img"><img src="case-zendesk.webp" alt="Zendesk case study"></div>
+        <div>
+          <h3>Zendesk</h3>
+          <p>Our GEO and content strategy helped Zendesk grow organic blog traffic by 657%, add $959K in traffic value, and reach 98% visibility in LLM responses across their industry, the highest of any competitor.</p>
+        </div>
+        <a href="https://www.siegemedia.com/work/zendesk-content-marketing" target="_blank" class="go">See more →</a>
+      </div>
+      <div class="work-item thumbed">
+        <div class="thumb has-img"><img src="case-zoom.webp" alt="Zoom case study"></div>
+        <div>
+          <h3>Zoom</h3>
+          <p>We built a link-focused content strategy for Zoom that earned 1,420 new links from sites including DR 40+ domains, lifted blog traffic value by 107%, and grew LLM visibility to 86%.</p>
+        </div>
+        <a href="https://www.siegemedia.com/work/zoom-content-marketing" target="_blank" class="go">See more →</a>
+      </div>
+      <div class="work-item thumbed">
+        <div class="thumb has-img"><img src="case-grow.webp" alt="Grow Therapy case study"></div>
+        <div>
+          <h3>Grow Therapy</h3>
+          <p>A dual-track content and digital PR strategy grew Grow Therapy's referring domains by 30.5%, added $20.7K in monthly traffic value, and nearly quadrupled their LLM visibility, from 11% to 43%.</p>
+        </div>
+        <a href="https://www.siegemedia.com/work/grow-therapy-content-marketing" target="_blank" class="go">See more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <h2>About</h2>
+        <div class="bio">
+          <p class="lead">I got into content marketing because I like writing, and I stayed because I love helping brands get discovered online.</p>
+          <p>Today, I'm the Director of Marketing at Siege Media, where I lead our content strategy, oversee editorial, manage a team of writers, and support business development through thought leadership, customer stories, data studies, and other marketing initiatives. As AI reshaped search, I helped lead our transition from an SEO-focused agency to a full-service GEO agency by developing our positioning, launching new service pages, aligning internal teams, and helping clients navigate the shift.</p>
+          <p>These days, I'm especially interested in the intersection of content marketing, SEO, and AI search, and how brands can build lasting visibility as the way people search continues to evolve.</p>
+          <p>Before content took over, I was a graphic designer creating logos, apparel, and hyperspecific memes for whatever group chat I was in. While design isn't my full-time job anymore, I'm still your guy for a quick T-shirt, presentation, or social graphic.</p>
+          <p>Over the past five years, I've helped startups and Fortune 500 companies grow through content, SEO, and AI search. I enjoy building content programs from the ground up, turning complex topics into something people actually want to read, and finding creative ways to solve marketing challenges.</p>
+          <p>When I'm off the clock, you'll usually find me hanging out with friends, biking around NYC, running, or listening to as much music as humanly possible. If anything here resonated with you, I'd love to connect, whether that's over Zoom, a cup of coffee, or a beer.</p>
+        </div>
+        <div class="skills">
+          <span class="skill-tag">SEO / GEO</span>
+          <span class="skill-tag">Content Strategy</span>
+          <span class="skill-tag">Editorial Management</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Adobe Creative Suite</span>
+          <span class="skill-tag">Semrush / Ahrefs</span>
+          <span class="skill-tag">Peec AI</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="when">2026 — Now</div>
+            <div>
+              <div class="role">Director of Marketing</div>
+              <div class="org">Siege Media</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="when">2026 — Now</div>
+            <div>
+              <div class="role">Freelance Writer</div>
+              <div class="org">Front Row Group</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="when">2025 – 2026</div>
+            <div>
+              <div class="role">Senior Content Marketing Manager</div>
+              <div class="org">Siege Media</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="when">2024 – 2025</div>
+            <div>
+              <div class="role">Content Marketing Manager</div>
+              <div class="org">Siege Media</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="when">2022 – 2024</div>
+            <div>
+              <div class="role">Intern → Jr. → Sr. Marketing Specialist</div>
+              <div class="org">Siege Media</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="when">2021</div>
+            <div>
+              <div class="role">Digital Marketing &amp; Design Intern</div>
+              <div class="org">Lightcast</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="when">2019 – 2021</div>
+            <div>
+              <div class="role">Graphic Designer</div>
+              <div class="org">Washington State University</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <h2>Let's talk<br>content strategy.</h2>
+      <div class="footer-links">
+        <a href="mailto:griffin.m.parrish@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/griffinparrish/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Griffin Parrish. New York, NY.</span>
+      <span>Built by hand, without em dashes.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.toggle button');
+  const lists = document.querySelectorAll('.work-list');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      lists.forEach(l => l.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
